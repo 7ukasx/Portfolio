@@ -1,0 +1,1055 @@
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #888888;
+  --border-color: #333333;
+  --accent: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e0e0e0;
+  --text-primary: #0a0a0a;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --border-color: #e0e0e0;
+  --accent: #0a0a0a;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: var(--transition);
+  touch-action: manipulation;
+}
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 2px 20px var(--shadow);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  z-index: 1001;
+}
+
+.logo-text {
+  font-family: 'Courier New', monospace;
+  letter-spacing: -1px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--bg-secondary);
+  transform: rotate(15deg) scale(1.1);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: var(--transition);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1001;
+  transition: width 0.1s ease;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-content {
+  animation: fadeInUp 1s ease-out;
+}
+
+.profile-image-wrapper {
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition);
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 30px var(--shadow);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-tertiary);
+}
+
+.image-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-placeholder p {
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  min-height: 50px;
+  animation: fadeIn 1s ease-out 0.7s backwards;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: fadeIn 1s ease-out 0.9s backwards;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-out 1.1s backwards;
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  display: inline-block;
+  border: 2px solid var(--border-color);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 2s ease-in-out infinite;
+}
+
+.scroll-indicator i {
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-underline {
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  margin: 0 auto 3rem;
+}
+
+.about {
+  background: var(--bg-secondary);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.about-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  transform: translateY(30px);
+}
+
+.skill-card.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.skill-card i {
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.skill-card:hover i {
+  transform: scale(1.1);
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.projects {
+  background: var(--bg-secondary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  
+  transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* PASST DEN CONTAINER AN: Zum Zentrieren des BILD-Containers */
+.project-image {
+  /* Behält die ursprüngliche Höhe des Projekt-Bild-Containers bei */
+  width: 100%;
+  height: 250px; 
+  overflow: hidden;
+  position: relative;
+  
+  /* NEU: Flexbox zum Zentrieren des Inhalts */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Hintergrundfarbe füllt den leeren Raum außerhalb des Kreises */
+  background-color: var(--bg-tertiary); 
+}
+
+/* NEUE REGEL: Dies erstellt den perfekten Kreis um das Logo */
+.project-image img {
+  /* WICHTIG: Feste, QUADRATISCHE Größe für den Kreis. 
+     Passen Sie diesen Wert an, wenn der Kreis größer/kleiner sein soll. */
+  width: 150px; 
+  height: 150px;
+  
+  /* Macht den Container kreisförmig */
+  border-radius: 50%;
+  
+  /* Zentriert das Bild darin und stellt sicher, dass es komplett sichtbar ist */
+  object-fit: contain; 
+  
+  /* Der saubere schwarze Rand. 
+     Wir verwenden die Variable --bg-primary, die im Dark Mode Schwarz ist. */
+  border: 3px solid var(--bg-primary); 
+  
+  /* Hintergrund des Kreises (Schwarz im Dark Mode) */
+  background-color: var(--bg-primary); 
+  
+  /* Sanfte Übergänge */
+  transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+}
+
+.project-image img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--shadow);
+}
+
+
+.image-placeholder-project {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+}
+
+.image-placeholder-project i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-placeholder-project p {
+  font-size: 0.9rem;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* NEU: Stellt sicher, dass der Container die volle Höhe der Projektkarte nutzt */
+  height: 100%;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  /* NEU: Dies ist der Schlüssel! Es sorgt dafür, dass dieser Block 
+     den gesamten verbleibenden vertikalen Raum im Flex-Container einnimmt. */
+  flex-grow: 1; 
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  padding: 6px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.tech-tag:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  padding: 10px 20px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-link:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.contact-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: var(--transition);
+  background: var(--bg-secondary);
+}
+
+.social-link:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.email-copy {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.email-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.copy-btn {
+  padding: 12px 28px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.copy-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  pointer-events: none;
+  z-index: 1002;
+}
+
+.copy-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer {
+  background: var(--bg-secondary);
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--bg-primary);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    transition: right 0.3s ease;
+    border-top: 1px solid var(--border-color);
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+   .hero {
+    /* Erhöhe den Abstand von 70px auf z.B. 120px */
+    padding-top: 120px; 
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+  }
+
+  .skill-card i {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .copy-notification {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-link {
+    justify-content: center;
+  }
+
+  .hero-cta {
+    padding: 0 10px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .email-text {
+    font-size: 1rem;
+    word-break: break-all;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+
+/* NEUE REGEL HINZUFÜGEN */
+.profile-image .image-placeholder img {
+  /* Stellt sicher, dass das Bild den Container ausfüllt */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  
+  /* DIE WICHTIGE EIGENSCHAFT */
+  /* Die Werte bestimmen, welcher Teil des Bildes im Fokus bleibt.
+     Erster Wert: Horizontal (X-Achse), Zweiter Wert: Vertikal (Y-Achse) */
+  object-position: 50% 60%; /* Standard: Bildzentrierung */
+}
+
+.le-logo-img {
+  height: 38px; /* Oder die Höhe deiner Navigationsleiste */
+  width: auto;
+  transition: var(--transition);
+  filter: invert(0); /* Für Dark Mode */
+  border-radius: 37px;
+}
+
+/* Für Light Mode: Das Logo invertieren, damit es dunkel bleibt */
+[data-theme="light"] .le-logo-img {
+  filter: invert(1); /* Hier invertieren wir es nicht, da es schon dunkel ist */
+}
+
+/* Beispiel, wenn dein Logo hell wäre und im Light Mode dunkel werden müsste: */
+/* [data-theme="light"] .le-logo-img {
+  filter: invert(1);
+} */
+
+#scrollTopBtn {
+    /* Position fixiert unten rechts */
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000; /* Stellt sicher, dass er über anderen Elementen liegt */
+
+    /* NEUES DESIGN: Heller Button mit dunklem Icon */
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff; /* Weißer Hintergrund */
+    color: #1a1a1a; /* Sehr dunkles Grau für das Icon */
+    border-radius: 50%; /* Macht den Button kreisrund */
+    border: 1px solid #e0e0e0; /* Dezenter Rand, falls Hintergrund auch sehr hell ist */
+    
+    /* Zentrierung des Icons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Entfernt die Standard-Unterstreichung */
+    
+    /* Anfangszustand: unsichtbar und etwas außerhalb des Blickfelds */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    /* Sanfte Übergänge für Animationen */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Zustand, wenn der Button sichtbar sein soll */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover-Effekt: Der Button wird leicht abgedunkelt */
+#scrollTopBtn:hover {
+    background-color: #f0f0f0; /* Leicht grauer Hintergrund beim Hover */
+    border-color: #cccccc; /* Rand wird dunkler */
+}
+
+/* Styling des Font Awesome Icons */
+#scrollTopBtn i {
+    font-size: 1.2rem;
+}
+
+[data-theme="light"] #scrollTopBtn {
+  filter: invert(1); /* Hier invertieren wir es nicht, da es schon dunkel ist */
+}
+
+[data-theme="light"] .image-placeholder {
+  filter: invert(1); /* Hier invertieren wir es nicht, da es schon dunkel ist */
+}
+
+/* Custom Styles für den CV-Download-Button */
+.contact-download {
+  margin-top: 2rem; 
+  text-align: center; 
+}
+
+.cv-download-btn {
+  /* Layout & Größe */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+
+  /* Farben (nutzt Theme-Variablen) */
+  background-color: var(--accent);
+  color: var(--bg-primary); 
+  border: 2px solid var(--accent);
+
+  /* Animation */
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.cv-download-btn:hover {
+  background-color: transparent;
+  color: var(--accent); 
+}

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of a 14-year-old full-stack developer specializing in JavaScript, React, Node.js, Express, and Java" />
+    <title>Portfolio - Developer</title>
+    <link rel="shortcut icon" href="le-logo.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+  <img src="le-logo.png" alt="L E Monogramm Logo" class="le-logo-img">
+</div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="themeIcon"></i></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <div class="image-placeholder">
+                  
+                  <img src="le-logo.png" alt="">
+                </div>
+              </div>
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="highlight">Lukas Eifertinger</span>
+            </h1>
+
+            <div class="hero-subtitle">
+              <span id="typedText"></span>
+              <span class="cursor">|</span>
+            </div>
+
+            <p class="hero-description">
+              14-year-old full-stack developer passionate about creating modern web applications
+            </p>
+
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="https://7ukasx.github.io/Resume---Lukas-Eifertinger/" class="btn btn-secondary" target="_blank">View Resume</a>
+            </div>
+          </div>
+
+          <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="section-underline"></div>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p class="about-paragraph">
+                I'm a 14-year-old developer with a passion for creating innovative web applications.
+                My journey in programming started with HTML and CSS, and has grown into a comprehensive
+                skill set spanning both frontend and backend technologies.
+              </p>
+
+              <p class="about-paragraph">
+                I hold a <strong>C1 level certification in English</strong>, which allows me to communicate
+                effectively with international teams and clients. I'm constantly learning and expanding my
+                knowledge to stay current with the latest web development trends and best practices.
+              </p>
+
+              <p class="about-paragraph">
+                When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects,
+                and going to the gym.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills" id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <div class="section-underline"></div>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <i class="fab fa-html5"></i>
+              <h3>HTML5</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fab fa-css3-alt"></i>
+              <h3>CSS3</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fab fa-js"></i>
+              <h3>JavaScript</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fab fa-react"></i>
+              <h3>React</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fab fa-node"></i>
+              <h3>Node.js</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fas fa-server"></i>
+              <h3>Express</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fab fa-java"></i>
+              <h3>Java</h3>
+            </div>
+
+            <div class="skill-card">
+              <i class="fas fa-language"></i>
+              <h3>English C1</h3>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-language"></i>
+              <h3>German C2</h3>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-dumbbell"></i>
+              <h3>Gym-enthusiast</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects" id="projects">
+        <div class="container">
+          <h2 class="section-title">My Projects</h2>
+          <div class="section-underline"></div>
+
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="locklelogo.png" alt="Screenshot of the Secure Encryption project">
+                  </div>
+              <div class="project-content">
+                <h3 class="project-title">Secure Encryption </h3>
+                <p class="project-description">
+                  A web application that allows users to securely encrypt and decrypt messages. Built with JavaScript
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Html</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">JavaScript</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/7ukasx/Secure-encryption" class="project-link" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                  <a href="https://7ukasx.github.io/Secure-encryption/" class="project-link" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+             <div class="project-image">
+              <img src="lestocklogo.png" alt="Screenshot of the Stock Tracker project">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Stock Tracker</h3>
+                <p class="project-description">
+                  A web application that allows users to track stock prices in real-time. Built with JavaScript and Express.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Fullstack</span>
+                  <span class="tech-tag">Api</span>
+                  <span class="tech-tag">Login</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/7ukasx/Stockapp" class="project-link" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                  <a href="https://7ukasx.github.io/Stockapp/" class="project-link" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+              <img src="ledumbbelllogo.png" alt="Screenshot of the Gym Tracker project">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Gym tracker</h3>
+                <p class="project-description">
+                  A platform that helps users track their workouts and progress.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/7ukasx/Gym-tracker" class="project-link" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                  <a href="#" class="project-link" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="section-underline"></div>
+
+          <p class="contact-description">
+            I'm always open to discussing new projects, creative ideas, or opportunities.
+            Feel free to reach out through any of the platforms below!
+            <B>Let's connect!</B>
+          </p>
+
+          <div class="social-links">
+            <a href="https://github.com/7ukasx" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/lukas-eifertinger-0b80a8377/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/x7ukas" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="mailto:eifertingerlukas@gmail.com" class="social-link email-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+
+          <div class="email-copy">
+            <p class="email-text">eifertingerlukas@gmail.com</p>
+            <button class="copy-btn" id="copyEmailBtn">
+              <i class="fas fa-copy"></i> Copy Email
+            </button>
+          </div>
+
+          <div class="copy-notification" id="copyNotification">
+            Email copied to clipboard!
+          </div>
+        </div>
+        <div class="contact-download">
+    <a href="Lukas_Eifertinger_Resume.pdf" download class="cv-download-btn">
+        <i class="fas fa-file-arrow-down"></i> Download Resume
+    </a>
+</div>
+
+</section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Lukas Eifertinger. All rights reserved.</p>
+        <p class="footer-note">For any further inquiries, feel free to reach out!</p>
+      </div>
+    </footer>
+    <a id="scrollTopBtn" href="#" >
+    <i class="fas fa-chevron-up"></i>
+</a>
+   <script type="module" src="main.js"></script>
+  </body>
+</html>
