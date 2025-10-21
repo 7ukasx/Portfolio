@@ -18,7 +18,7 @@ export const typeText = (elementId, text, speed = 100) => {
     type()
   })
 }
-
+//test
 /**
  * Löscht den Text im Element Buchstabe für Buchstabe.
  * @param {string} elementId - Die ID des HTML-Elements.
